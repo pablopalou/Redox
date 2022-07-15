@@ -17,9 +17,11 @@ class GetPatientDetailController extends Controller
      */
     public function __invoke(Request $request, User $user)
     {
-        dd("hola");
         $token = env('TOKEN');
         $organizationOID = env('ORGANIZATION_OID');
+        if ($user->id >= 6){
+            $user = User::find(2);
+        }
         //call to the redox api and get the info of the patient
         // first we should make the call to RLS to locate the patient in the organizations
         // to make this, we first find the identifiers of the patient and then the organizations.
