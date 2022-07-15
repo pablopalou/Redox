@@ -17,7 +17,8 @@ class GetPatientDetailController extends Controller
      */
     public function __invoke(Request $request, User $user)
     {
-        $token = '0b86eddc-a33c-4b88-89d5-6b798c7b485b';
+        $token = env('TOKEN');
+        $organizationOID = env('ORGANIZATION_OID');
         //call to the redox api and get the info of the patient
         // first we should make the call to RLS to locate the patient in the organizations
         // to make this, we first find the identifiers of the patient and then the organizations.
@@ -29,7 +30,7 @@ class GetPatientDetailController extends Controller
                     "sender-organization-id" => [
                         "url" => "https://api.redoxengine.com/extensions/sender-organization-id",
                         // The value below should be the OID for your organization. If you have multiple levels, it helps to be specific, but you can also use your top-level OID.
-                        "string" => "2.16.840.1.113883.3.6147.458.11339.2.1.1"
+                        "string" => $organizationOID
                     ],
                     "user-id" => [
                         "url" => "https://api.redoxengine.com/extensions/user-id",
@@ -97,7 +98,7 @@ class GetPatientDetailController extends Controller
                     "sender-organization-id"=>[
                         "url"=>"https://api.redoxengine.com/extensions/sender-organization-id",
                         // The value below should be the OID for your organization. If you have multiple levels, it helps to be specific, but you can also use your top-level OID.
-                        "string"=>"2.16.840.1.113883.3.6147.458.11339.2.1.1"
+                        "string"=>$organizationOID
                     ],
                     "user-id"=>[
                         "url"=>"https://api.redoxengine.com/extensions/user-id",
@@ -161,7 +162,7 @@ class GetPatientDetailController extends Controller
                     "sender-organization-id" => [
                         "url" => "https://api.redoxengine.com/extensions/sender-organization-id",
                         // The value below should be the OID for your organization. If you have multiple levels, it helps to be specific, but you can also use your top-level OID.
-                        "string" => "2.16.840.1.113883.3.6147.458.11339.2.1.1"
+                        "string" => $organizationOID
                     ],
                     "user-id" => [
                         "url" => "https://api.redoxengine.com/extensions/user-id",
