@@ -148,7 +148,7 @@ class GetPatientDetailController extends Controller
             ]
         ]
         );
-        // dd($responseOrganizations->json());
+        dd($responseOrganizations->json());
         $organizationID = $responseOrganizations->json()['Patients'][0]['Organization']['Identifiers'][0]['ID'];
         $organizationIDType = $responseOrganizations->json()['Patients'][0]['Organization']['Identifiers'][0]['IDType'];
         $newPatientId = $responseOrganizations->json()['Patients'][0]['Identifiers'][0]['ID'];
