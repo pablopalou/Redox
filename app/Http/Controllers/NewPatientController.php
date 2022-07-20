@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\NewPatientRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 
 class NewPatientController extends Controller
@@ -19,7 +20,7 @@ class NewPatientController extends Controller
     {
         // call the redox api and also save in database
         // see id of patient in my database
-        $token = env('TOKEN');
+        $token = Config::get('token');
         $organizationOID = env('ORGANIZATION_OID');
 
         $arguments = $request->validated();
