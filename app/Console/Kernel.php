@@ -29,24 +29,11 @@ class Kernel extends ConsoleKernel
                 'grant_type' => 'client_credentials'
             ]
             );
-            // dd($response);
-            // dd($response->json()['accessToken']);
             $token = $response->json()['accessToken'];
             // dd($token);
             cache(['token' => $token], now()->addDay());
-            
-            // Config::set('app.token', $token);
-            // dd(Config::get('app.token'));
-            // $_ENV['TOKEN'] = $token;
-            // dd(env('TOKEN'));
-            // dd(getenv());
-        })->everyMinute();
 
-        // $schedule->exec('php artisan cache:clear');
-        // $schedule->exec('php artisan config:clear');
-        // $schedule->exec('php artisan route:clear');
-
-        // ->twiceDaily(1, 13);
+        })->daily();
     }
 
     /**
