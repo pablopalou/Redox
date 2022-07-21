@@ -19,9 +19,7 @@ class GetPatientDetailController extends Controller
     public function __invoke(Request $request, User $user)
     {
         $token = cache('token');
-        // $token = Config::get('app.token');
-        // logger($token);
-        // dd($token);
+
         $organizationOID = env('ORGANIZATION_OID');
         if ($user->id >= 6){
             $user = User::find(2);
