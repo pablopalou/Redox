@@ -7,6 +7,8 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+<p>To run this code, you must run php artisan serve command and also php artisan schedule:work, because a token is generated daily. Make sure you have this token prior to run this demo. If there is any problem, feel free to change the scedule in Kernel.php in the app/Console directory</p>
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
